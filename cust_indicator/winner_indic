@@ -1,0 +1,43 @@
+import backtrader as bt
+
+class WinnerIndicator(bt.Indicator):
+	lines = ('winner',)
+	params = (('period', 250),)
+
+	def __init__(self):
+		self.addminperiod(self.params.period)
+
+	def next(self):
+		close_price = self.data.close[0]
+		
+		df = pd.DataFrame({
+			'volume': self.data.volume.get(size=self.params.period),
+			'amount': self.data.amount.get(size=self.params.period),
+			'close': self.data.close.get(size=self.params.period)
+		})
+		df = df.loc[df['volume'] != 0]
+		df['mean'] = df['amount'] / df['volume'] / 100
+		
+		turnover_rate = self.data.turnover.get(size=self.params.period)
+		df['turnover'] = turnover_rate
+		df['turnover'].iloc[0] = 0
+		
+		df['1_turnover'] = 1 - df['turnover']
+		df['2_turnover'] = df['1_turnover'][::-1].values
+		df['3_turnover'] = df['2_turnover'].shift(periods=1)
+		df['3_turnover'].iloc[0] = 1
+		
+		df['4_turnover'] = df['3_turnover'].cumprod()[::-1].values
+		df['turnover'].iloc[0] = 1
+		df['chouma'] = df['turnover'] * df['4_turnover']
+		
+		self.lines.winner[0] = df.loc[
+			df['mean'] < close_price]['chouma'].sum()
+
+class Winner(bt.Strategy):
+	def __init__(self):
+		self.winner = WinnerIndicator()
+
+	def next(self):
+		# 在这里使用self.winner的值进行交易决策
+		pass

@@ -1,0 +1,43 @@
+syntax = "proto3";  // 指定Protobuf语法版本
+
+package hstong;  // 定义包名，可以根据实际需要修改
+
+// 枚举类型定义推送消息类型
+enum NotifyMsgType {
+    TradeStockDeliverMsgType = 0;
+}
+message BasicQotNotify {
+    Security security = 1;
+    BasicQot basicQot=2; // 基础行情返回
+}
+
+message ExampleMessage {
+    int32 id = 1;          // 整数类型
+    string name = 2;       // 字符串类型
+    double value = 3;      // 双精度浮点数类型
+    double anotherValue = 4; // 另一个双精度浮点数类型
+}
+message Security {
+    int32 dataType = 1;
+    string code = 2;
+}
+
+message BasicQot {
+      double openPrice = 1;
+      double highPrice= 2;
+      double lowPrice= 3;
+      double lastPrice= 4;
+      double lastClosePrice= 5;
+      sint64 volume= 6;
+      double turnover= 7;
+      double amplitude= 8;
+      string tradeTime= 9;
+}
+
+// 定义推送报文的消息结构
+message NotifyMessage {
+    NotifyMsgType notifyMsgType = 1;  // 推送消息类型
+    string notifyId = 2;               // 推送ID
+    int64 notifyTime = 3;              // 推送时间戳，使用int64类型以支持更大的时间范围
+    BasicQotNotify payload = 4;        // 推送消息实体，使用bytes类型以支持任意数据
+}

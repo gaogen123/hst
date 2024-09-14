@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package your.package.name;
+
+// 定义一个简单的消息类型
+message Person {
+    string name = 1;  // 姓名
+    int32 id = 2;     // ID
+    string email = 3; // 邮箱
+}
+
+// 定义另一个消息类型
+message AddressBook {
+    repeated Person people = 1; // 包含多个 Person
+}

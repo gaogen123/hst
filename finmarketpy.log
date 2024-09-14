@@ -1,0 +1,15 @@
+2024-05-12 21:26:03,483 - findatapy.market.datavendorweb - INFO - Request Quandl data
+2024-05-12 21:26:04,416 - findatapy.market.datavendorweb - INFO - Completed request from Quandl for ['AUDUSD.close']
+2024-05-12 21:26:04,424 - findatapy.market.datavendorweb - INFO - Request Quandl data
+2024-05-12 21:26:05,287 - findatapy.market.datavendorweb - INFO - Completed request from Quandl for ['USDJPY.close']
+2024-05-12 21:26:07,354 - findatapy.market.ioengine - WARNING - Could not push MarketDataRequest_1013__abstract_curve_key-None__arcticdb_dict-{'prune_previous_versions': False, 'write_style': 'write', 'force_create_library': Fal... to Redis: Error 10061 connecting to 127.0.0.1:6379. 由于目标计算机积极拒绝，无法连接。.
+2024-05-12 21:26:21,651 - findatapy.market.datavendorweb - INFO - Request Quandl data
+2024-05-12 21:26:22,521 - findatapy.market.datavendorweb - INFO - Completed request from Quandl for ['AUDUSD.close']
+2024-05-12 21:26:22,528 - findatapy.market.datavendorweb - INFO - Request Quandl data
+2024-05-12 21:26:23,267 - findatapy.market.datavendorweb - INFO - Completed request from Quandl for ['USDJPY.close']
+2024-05-12 21:26:25,313 - findatapy.market.ioengine - WARNING - Could not push MarketDataRequest_1013__abstract_curve_key-None__arcticdb_dict-{'prune_previous_versions': False, 'write_style': 'write', 'force_create_library': Fal... to Redis: Error 10061 connecting to 127.0.0.1:6379. 由于目标计算机积极拒绝，无法连接。.
+2024-05-12 21:26:38,124 - findatapy.market.datavendorweb - INFO - Request Quandl data
+2024-05-12 21:26:38,881 - findatapy.market.datavendorweb - INFO - Completed request from Quandl for ['AUDUSD.close']
+2024-05-12 21:26:38,889 - findatapy.market.datavendorweb - INFO - Request Quandl data
+2024-05-12 21:26:40,002 - findatapy.market.datavendorweb - INFO - Completed request from Quandl for ['USDJPY.close']
+2024-05-12 21:26:42,052 - findatapy.market.ioengine - WARNING - Could not push MarketDataRequest_1013__abstract_curve_key-None__arcticdb_dict-{'prune_previous_versions': False, 'write_style': 'write', 'force_create_library': Fal... to Redis: Error 10061 connecting to 127.0.0.1:6379. 由于目标计算机积极拒绝，无法连接。.
